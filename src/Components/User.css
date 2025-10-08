@@ -1,0 +1,443 @@
+.user-container {
+  text-align: center;
+  padding: 30px;
+  border-radius: 2rem;
+  background: #fafafa;
+}
+
+.user-title {
+  font-size: 2rem;
+  margin-bottom: 30px;
+  margin-top: 36px;
+  color: #333;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.user-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 60px;
+  justify-content: center;
+}
+
+/* ====== Uiverse.io Card Style ====== */
+.card {
+
+
+  border-radius: 20px;
+  background: #f5f5f5;
+  position: relative;
+  padding: 1.8rem;
+  border: 2px solid #c3c6ce;
+  transition: 0.5s ease-out;
+  overflow: visible;
+}
+
+.card-details {
+  color: black;
+  height: 100%;
+  display: grid;
+  gap: 0.5em;
+  place-content: center;
+}
+
+.text-body {
+  color: rgb(134, 134, 134);
+  font-size: 0.9rem;
+}
+
+.text-title {
+  font-size: 1.3em;
+  font-weight: bold;
+}
+
+/* Hover */
+.card:hover {
+  border-color: #008bf8;
+  box-shadow: 0 4px 18px 0 rgba(0, 0, 0, 0.25);
+}
+
+.card-button {
+  transform: translate(-50%, 125%);
+  width: 70%;
+  border-radius: 1rem;
+  border: none;
+  background-color: #008bf8;
+  color: #fff;
+  font-size: 1rem;
+  padding: 0.5rem 1rem;
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  opacity: 0;
+  transition: 0.3s ease-out;
+  cursor: pointer;
+}
+
+.card:hover .card-button {
+  transform: translate(-50%, 50%);
+  opacity: 1;
+}
+
+/* Extra Info Box */
+.extra-info {
+  margin-top: 10px;
+  background: #eaebeb;
+  padding: 10px;
+  border-radius: 63px;
+  text-align: left;
+  font-size: 0.85rem;
+
+
+}
+
+.post-card {
+  align-items: center;
+}
+
+h3 {
+  font-size: 2rem;
+  margin-left: 5%;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+
+
+/* General Layout and Container */
+.user-details {
+  max-width: 1000px;
+  /* Max width for content container */
+  margin: 40px auto;
+  /* Center the container on the page */
+  padding: 20px;
+  background-color: #f8f8f8;
+  /* Light background for the page */
+  font-family: Arial, sans-serif;
+  border-radius: 12px;
+  /* Soft rounding for the whole area */
+}
+
+/* Back Button Styling */
+.back-btn {
+  background-color: #007bff;
+  /* Primary blue color */
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  margin-bottom: 20px;
+  transition: background-color 0.3s ease;
+}
+
+.back-btn:hover {
+  background-color: #0056b3;
+  /* Darker blue on hover */
+}
+
+/* User Info Section */
+.user-details h2 {
+  color: #333;
+  margin-bottom: 15px;
+  border-bottom: 2px solid #eee;
+  /* Subtle separator */
+  padding-bottom: 10px;
+}
+
+.user-details p {
+  line-height: 1.6;
+  margin-bottom: 8px;
+  color: #555;
+}
+
+.user-details b {
+  color: #333;
+  min-width: 90px;
+  /* Helps align values if put next to each other */
+  display: inline-block;
+
+}
+
+/* Posts Section Styling (Container) */
+.extra-info {
+  margin-top: 30px;
+  padding-top: 20px;
+  border-top: 1px solid #ddd;
+}
+
+.extra-info h3 {
+  color: #333;
+  margin-bottom: 20px;
+}
+
+/* Post Card Styling */
+.post-card {
+  background-color: white;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 15px;
+  margin-bottom: 15px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  /* Soft, modern shadow */
+  transition: transform 0.2s;
+}
+
+.post-card:hover {
+  transform: translateY(-2px);
+  /* Slight lift on hover */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.post-card h4 {
+  color: #007bff;
+  /* Same as the back button for visual consistency */
+  margin-top: 0;
+  margin-bottom: 10px;
+  font-size: 1.1em;
+}
+
+.post-card p {
+  color: #666;
+  font-size: 0.95em;
+  margin-bottom: 0;
+}
+
+/* Responsive adjustment for smaller screens */
+@media (max-width: 600px) {
+  .user-details {
+    margin: 20px;
+    padding: 15px;
+  }
+}
+
+
+/* Search bar styling */
+.search-bar {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.search-bar input {
+  width: 60%;
+  padding: 10px;
+  font-size: 16px;
+  border-radius: 8px;
+  border: 2px solid #008bf8;
+  outline: none;
+  background-color: white;
+  transition: all 0.3s ease;
+}
+
+.search-bar input:focus {
+  border-color: #005bb5;
+  box-shadow: 0 0 5px rgba(0, 139, 248, 0.5);
+}
+
+.no-results {
+  text-align: center;
+  color: #666;
+  font-style: italic;
+  margin-top: 20px;
+}
+
+.editbtn {
+  width: 2rem;
+}
+
+.navlogo {
+  margin-bottom: 3.6px;
+}
+
+/* 🌟 Global Styles */
+body {
+  background-color: #f8f9fa;
+  font-family: "Poppins", sans-serif;
+  color: #333;
+}
+
+/* 🧾 Container Styling */
+.container {
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+/* 🧑‍💼 Card Styling */
+.card {
+  background: #ffffff;
+  border: none;
+  border-radius: 16px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
+}
+
+/* 🧭 Title */
+h2 {
+  font-weight: 600;
+  text-align: center;
+  color: #0d6efd;
+  letter-spacing: 0.5px;
+  margin-bottom: 1rem;
+}
+
+/* 🧩 User Info Text */
+.card p {
+  margin: 6px 0;
+  font-size: 15px;
+  color: #090909;
+}
+
+.card p b {
+  color: #0d6efd;
+}
+
+/* 🌀 Loading Text */
+.text-center {
+  color: #0d6efd;
+  font-weight: 500;
+}
+
+/* 📱 Responsive */
+@media (max-width: 576px) {
+  .card {
+    padding: 1.2rem;
+  }
+
+  h2 {
+    font-size: 1.4rem;
+  }
+}
+
+.user-details {
+  font-family: "Poppins", sans-serif;
+  color: #333;
+}
+
+/* Back button */
+.back-btn {
+  border-radius: 8px;
+  transition: 0.3s;
+}
+
+.back-btn:hover {
+  background-color: #0d6efd;
+  color: #fff;
+}
+
+/* Post Cards */
+.post-card {
+  border-radius: 12px;
+  transition: transform 0.2s ease;
+}
+
+.post-card:hover {
+  transform: scale(1.02);
+}
+
+/* Pagination */
+.pagination .page-link {
+  color: #0d6efd;
+  border-radius: 6px;
+}
+
+.pagination .active .page-link {
+  background-color: #0d6efd;
+  color: white;
+  border-color: #0d6efd;
+}
+
+/* Blurred background when modal is open */
+.blurred {
+  filter: blur(4px);
+  pointer-events: none;
+  user-select: none;
+}
+
+/* Modal overlay */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(213, 211, 211, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+/* Modal content */
+.modal-content {
+  background-color: #fff;
+  padding: 30px;
+  border-radius: 10px;
+  width: 400px;
+  max-width: 90%;
+  box-shadow: 0 5px 15px rgba(195, 189, 189, 0.3);
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+/* Larger modal */
+.modal-large {
+  width: 600px;
+}
+
+/* Inputs inside modal */
+.modal-content input {
+  padding: 8px 12px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  width: 100%;
+}
+
+/* Modal buttons */
+.modal-buttons {
+  display: flex;
+  gap: 10px;
+  justify-content: flex-end;
+}
+
+.text-body {
+  background-color: white;
+}
+
+
+
+/* ============================================ */
+.editform {
+  border-radius: 15px;
+  font-size: 14px;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  width: 50px;
+  border: 2px;
+  background-color: cornflowerblue;
+
+}
+
+.editform:hover {
+  background-color: #c3c6ce;
+  font-size: 14.2px;
+
+}
+
+.cmtbtn {}
+
+.cmtbtnNAME {
+  background-color: white;
+  font-size: 12px;
+  
+  color: #005bb5;
+  border: 1px;
+
+}
+.cmtbtnNAME:hover{
+  font-size: 10px;
+}
