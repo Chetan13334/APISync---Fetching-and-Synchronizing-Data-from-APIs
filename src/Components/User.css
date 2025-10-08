@@ -413,19 +413,31 @@ h2 {
 
 /* ============================================ */
 .editform {
-  border-radius: 15px;
-  font-size: 14px;
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-  width: 50px;
-  border: 2px;
-  background-color: cornflowerblue;
+ position: relative;
+  display: inline-block;
+  margin: 10px;
+  padding: 8px 8px;
+  text-align: center;
+  font-size: 10px;
+  letter-spacing: 1px;
+  text-decoration: none;
+  color: #725AC1;
+  background: transparent;
+  cursor: pointer;
+  transition: ease-out 0.5s;
+  border: 2px solid #1241db;
+  border-radius: 10px;
+  box-shadow: inset 0 0 0 0 #9cbdf3;
 
 }
 
 .editform:hover {
-  background-color: #c3c6ce;
-  font-size: 14.2px;
+   color: white;
+  box-shadow: inset 0 -100px 0 0 #5c89fc;
 
+}
+.editform:active {
+  transform: scale(0.9);
 }
 
 .cmtbtn {}

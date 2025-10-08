@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import "./details.css";
+import Navbar from "./Navbar";
 
 const UserDetails = () => {
   const { id } = useParams();
@@ -42,7 +43,18 @@ const UserDetails = () => {
 
   const handlePageClick = (pageNum) => setCurrentPage(pageNum);
 
-  if (!user) return <p>Loading user details...</p>;
+  if (!user) return <div class="cardd">
+  <div class="loader">
+    <p>loading</p>
+    <div class="words">
+      <span class="word">buttons</span>
+      <span class="word">forms</span>
+      <span class="word">switches</span>
+      <span class="word">cards</span>
+      <span class="word">buttons</span>
+    </div>
+  </div>
+</div>;
 
   // Pagination logic
   const indexOfLast = currentPage * postsPerPage;
@@ -52,6 +64,7 @@ const UserDetails = () => {
 
   return (
     <>
+    <Navbar />
       <div className={`user-details-container ${selectedPost ? "blurred" : ""}`}>
         {/* ===== Back Button ===== */}
         <button className="back-btn" onClick={() => navigate(-1)}>
