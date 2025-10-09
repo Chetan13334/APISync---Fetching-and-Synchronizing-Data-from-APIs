@@ -61,7 +61,7 @@ body.dark-mode {
 body {
   margin: 0;
   font-family: "Poppins", sans-serif;
-  background-color: var(--bg-light);
+  background-color: white;
   color: var(--text-dark);
   transition: background 0.3s ease;
 }
@@ -455,8 +455,8 @@ body {
   padding: 8px 12px;
   border-radius: 6px;
   border: 1px solid #aacde0;
-  background-color: var(--bg-light);
-  color: var(--text-dark);
+  background-color:white;
+  /* color: var(--text-dark); */
   width: 100%;
 }
 
