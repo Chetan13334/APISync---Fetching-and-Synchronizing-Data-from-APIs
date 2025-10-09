@@ -1,9 +1,11 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import "./details.css";
+import { ThemeContext } from "./ThemeContext";
 import Navbar from "./Navbar";
 
 const UserDetails = () => {
+ 
   const { id } = useParams();
   const navigate = useNavigate();
 
@@ -43,38 +45,34 @@ const UserDetails = () => {
 
   const handlePageClick = (pageNum) => setCurrentPage(pageNum);
 
-  if (!user) return <div class="cardd">
-  <div class="loader">
-    <p>loading</p>
-    <div class="words">
-      <span class="word">buttons</span>
-      <span class="word">forms</span>
-      <span class="word">switches</span>
-      <span class="word">cards</span>
-      <span class="word">buttons</span>
-    </div>
-  </div>
-</div>;
+  if (!user)
+    return (
+      <div className="banter-loader">
+        <div className="banter-loader__box"></div>
+        <div className="banter-loader__box"></div>
+        <div className="banter-loader__box"></div>
+      </div>
+    );
 
-  // Pagination logic
+  // Pagination
   const indexOfLast = currentPage * postsPerPage;
   const indexOfFirst = indexOfLast - postsPerPage;
   const currentPosts = posts.slice(indexOfFirst, indexOfLast);
   const totalPages = Math.ceil(posts.length / postsPerPage);
+   const { darkMode } = useContext(ThemeContext); // Fix: added useContext
 
   return (
     <>
-    <Navbar />
-      <div className={`user-details-container ${selectedPost ? "blurred" : ""}`}>
-        {/* ===== Back Button ===== */}
-        <button className="back-btn" onClick={() => navigate(-1)}>
-          ← Back
+      <Navbar />
+      <div className={`user-details-container ${selectedPost ? "blurred" : ""} ${darkMode ? "dark-mode" : "light-mode"}`}>
+        <button className={`back-btn ${darkMode ? "dark-btn" : ""}`} onClick={() => navigate(-1)}>
+          ←Back
         </button>
 
         <h2 className="user-title">{user.name} – Profile & Posts</h2>
 
-        {/* ===== User Info ===== */}
-        <div className="user-info-card">
+        {/* User Info */}
+        <div className={`user-info-card ${darkMode ? "dark-card" : ""}`}>
           <h2>{user.name}</h2>
           <p><b>Username:</b> {user.username}</p>
           <p><b>Email:</b> {user.email}</p>
@@ -82,27 +80,27 @@ const UserDetails = () => {
           <p><b>Company:</b> {user.company.name}</p>
         </div>
 
-        {/* ===== Posts Section ===== */}
+        {/* Posts */}
         <div className="posts-section">
           <h3>User Posts</h3>
           <div className="posts-grid">
             {currentPosts.map((post) => (
-              <div key={post.id} className="post-card">
+              <div key={post.id} className={`post-card ${darkMode ? "dark-card" : ""}`}>
                 <h5>{post.title}</h5>
                 <p>{post.body}</p>
-                <button className="seecmt" onClick={() => handleShowComments(post)}>
+                <button className={`seecmt ${darkMode ? "dark-btn" : ""}`} onClick={() => handleShowComments(post)}>
                   See Comments
                 </button>
               </div>
             ))}
           </div>
 
-          {/* ===== Pagination ===== */}
+          {/* Pagination */}
           <div className="pagination">
             {Array.from({ length: totalPages }, (_, index) => (
               <button
                 key={index}
-                className={`btn ${currentPage === index + 1 ? "btn-primary" : "btn-secondary"}`}
+                className={`btn ${currentPage === index + 1 ? "btn-primary" : "btn-secondary"} ${darkMode ? "dark-btn" : ""}`}
                 onClick={() => handlePageClick(index + 1)}
               >
                 {index + 1}
@@ -112,15 +110,15 @@ const UserDetails = () => {
         </div>
       </div>
 
-      {/* ===== Popup (Dark Themed) ===== */}
+      {/* Popup */}
       {selectedPost && (
-        <div className="popup-overlay">
+        <div className={`popup-overlay ${darkMode ? "dark-popup" : ""}`}>
           <div className="popup-container">
             <h3 className="popup-title">Comments for: {selectedPost.title}</h3>
             <div className="popup-comments">
               {comments.length > 0 ? (
                 comments.map((comment) => (
-                  <div key={comment.id} className="popup-comment">
+                  <div key={comment.id} className={`popup-comment ${darkMode ? "dark-card" : ""}`}>
                     <p className="popup-comment-name">{comment.name}</p>
                     <p className="popup-comment-body">{comment.body}</p>
                   </div>
@@ -129,7 +127,7 @@ const UserDetails = () => {
                 <p className="popup-loading">Loading comments...</p>
               )}
             </div>
-            <button className="popup-close-btn" onClick={closeModal}>
+            <button className={`popup-close-btn ${darkMode ? "dark-btn" : ""}`} onClick={closeModal}>
               Close
             </button>
           </div>

@@ -1,8 +1,14 @@
 import React from "react";
 import "./User.css";
+import React, { useContext } from "react";
+
 
 const EditForm = ({ formData, handleChange, handleSave, handleCancel, userId }) => {
+  
+  
   return (
+    <>
+    {/* <NavBar/> */}
     <div className="edit-form">
       <input type="text" name="name" value={formData.name} onChange={handleChange} placeholder="Name" />
       <input type="text" name="username" value={formData.username} onChange={handleChange} placeholder="Username" />
@@ -14,6 +20,7 @@ const EditForm = ({ formData, handleChange, handleSave, handleCancel, userId }) 
         <button className="btn btn-secondary btn-sm" onClick={handleCancel}>Cancel</button>
       </div>
     </div>
+    </>
   );
 };
 

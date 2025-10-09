@@ -1,11 +1,18 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import logo from "./assets2/google.png";
+import { ThemeContext } from "./ThemeContext";
 import "./User.css";
 
 const Navbar = () => {
+  const { darkMode, toggleTheme } = useContext(ThemeContext);
+
   return (
-    <nav className="navbar navbar-expand-lg navbar-light bg-light fixed-top shadow-sm">
+    <nav
+      className={`navbar navbar-expand-lg fixed-top shadow-sm ${
+        darkMode ? "navbar-dark bg-dark" : "navbar-light bg-light"
+      }`}
+    >
       <div className="container-fluid">
         <Link className="navbar-brand fw-bold" to="/">
           <img
@@ -17,6 +24,11 @@ const Navbar = () => {
           />
           APISync
         </Link>
+
+        <button className="theme-toggle" onClick={toggleTheme}>
+          {darkMode ? "Light Mode" : "Dark Mode"}
+        </button>
+
         <button
           className="navbar-toggler"
           type="button"
@@ -32,10 +44,14 @@ const Navbar = () => {
         <div className="collapse navbar-collapse" id="navbarNav">
           <ul className="navbar-nav ms-auto">
             <li className="nav-item">
-              <Link className="nav-link active" to="/">Home</Link>
+              <Link className="nav-link active" to="/">
+                Home
+              </Link>
             </li>
             <li className="nav-item">
-              <Link className="nav-link" to="/user/1">More Details</Link>
+              <Link className="nav-link" to="/user/1">
+                More Details
+              </Link>
             </li>
           </ul>
         </div>
